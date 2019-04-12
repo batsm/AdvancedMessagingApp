@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "287946004098",
+    "firebase_url": "https://advancedmessagingapp.firebaseio.com",
+    "project_id": "advancedmessagingapp",
+    "storage_bucket": "advancedmessagingapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287946004098:android:a7f02772a5e34eb5",
+        "android_client_info": {
+          "package_name": "advancedmessagingapp.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287946004098-f5bj0688el46l3kdd0niv8ds67u57km4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "advancedmessagingapp.com",
+            "certificate_hash": "e2a9011a62dea39d48ddbe8a22905652d0dee182"
+          }
+        },
+        {
+          "client_id": "287946004098-ivc506ielhr91c871bc83mdkg7ietpcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASQWvt4udhQ_cAfLXrNNvq0ouaYkBBjTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287946004098-ivc506ielhr91c871bc83mdkg7ietpcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
