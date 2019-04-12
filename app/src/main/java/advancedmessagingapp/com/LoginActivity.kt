@@ -7,8 +7,16 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.FragmentActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+
+
+
+
 
 class LoginActivity : FragmentActivity() {
+
+//    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
