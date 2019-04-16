@@ -22,7 +22,7 @@ class CreateAccount : FragmentActivity() {
 
         btnCreateAccount.setOnClickListener {view ->
             if (txtCreatePass1.text.toString() == txtCreatePass2.text.toString()) {
-                showMessage(view, "Creating Account...")
+                createAccount(view, txtCreateEmail.text.toString(), txtCreatePass1.text.toString())
             }else{
                 showMessage(view, "Error: Passwords dont match")
             }
@@ -31,7 +31,17 @@ class CreateAccount : FragmentActivity() {
     }
 
     fun createAccount(view: View, email: String, password: String) {
-
+        showMessage(view, "Creating Account...")
+        fbAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if(task.isSuccessful){
+                    showMessage(view, "Created account!")
+                    var intent = Intent(this, ContactsPage::class.java)
+                    startActivity(intent)
+                } else {
+                    showMessage(view, "Error: ${task.exception?.message}")
+                }
+            }
     }
 
     fun showMessage(view: View, message: String) {
