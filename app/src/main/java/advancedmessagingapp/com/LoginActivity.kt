@@ -9,14 +9,12 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-
-
-
+import kotlinx.android.synthetic.main.activity_create_account.*
 
 
 class LoginActivity : FragmentActivity() {
 
-//    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+//    var fbAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
