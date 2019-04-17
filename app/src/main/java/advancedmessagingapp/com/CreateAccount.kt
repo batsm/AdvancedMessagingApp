@@ -26,7 +26,6 @@ class CreateAccount : FragmentActivity() {
             }else{
                 showMessage(view, "Error: Passwords dont match")
             }
-
         }
     }
 
@@ -38,6 +37,7 @@ class CreateAccount : FragmentActivity() {
                     showMessage(view, "Created account!")
                     var intent = Intent(this, ContactsPage::class.java)
                     startActivity(intent)
+                    finish()
                 } else {
                     showMessage(view, "Error: ${task.exception?.message}")
                 }
