@@ -11,7 +11,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.ActionBar
 
 
-class ContactsPage : AppCompatActivity() {
+class ContactsPage : FragmentActivity() {
 
     lateinit var toolbar: ActionBar
 
@@ -21,7 +21,7 @@ class ContactsPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts_page)
 
-        toolbar = supportActionBar!!
+        //toolbar = supportActionBar!!
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationBarBackground)
 
         val adapter = contactsAdapter(contacts)
