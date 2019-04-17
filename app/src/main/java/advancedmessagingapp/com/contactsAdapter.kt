@@ -15,7 +15,8 @@ class contactsAdapter (private val contactList: ArrayList<contactContainerData>)
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0.mainTitle.text = contactList[p1].username
+        p0.mainContactTitle.text = contactList[p1].username
+        p0.mainContactMessage.text = contactList[p1].lastmessage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,7 +27,8 @@ class contactsAdapter (private val contactList: ArrayList<contactContainerData>)
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        val mainTitle = itemView.findViewById<TextView>(R.id.txtContactName)
+        val mainContactTitle = itemView.findViewById<TextView>(R.id.txtContactName)
+        val mainContactMessage = itemView.findViewById<TextView>(R.id.txtContactLastMessage)
 
         init {
             itemView.setOnClickListener(this)
