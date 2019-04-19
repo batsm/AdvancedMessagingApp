@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/action_recents"
+            android:id="@+id/action_contacts"
             android:enabled="true"
-            android:title="Recents"
+            android:title="Contacts"
             />
     <item
-            android:id="@+id/action_favorites"
+            android:id="@+id/action_addcontacts"
             android:enabled="true"
-            android:title="Favorites"
+            android:title="Add Contacts"
              />
     <item
-            android:id="@+id/action_nearby"
+            android:id="@+id/action_account"
             android:enabled="true"
-            android:title="Nearby"
+            android:title="Account"
             />
 </menu>

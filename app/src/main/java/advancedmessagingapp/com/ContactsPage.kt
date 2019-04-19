@@ -26,7 +26,11 @@ class ContactsPage : FragmentActivity() {
 
         val adapter = contactsAdapter(contacts)
 
-        contacts.add(contactContainerData("Thomas", "whats up buttercup"))
+        for (i in 1..20)
+        {
+            contacts.add(contactContainerData("Thomas${i.toString()}", "whats up buttercup"))
+        }
+        //contacts.add(contactContainerData("Thomas", "whats up buttercup"))
         contacts.add(contactContainerData("Ben", "Lol yeah that was pretty great"))
         contacts.add(contactContainerData("Kate", "Memes lit yo"))
 
