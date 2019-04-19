@@ -35,9 +35,9 @@ class contactsAdapter (private val contactList: ArrayList<contactContainerData>)
         }
 
         override fun onClick(v: View?) {
-            //val intent = Intent(itemView.context, MessagesActivity::class.java)
+            val intent = Intent(itemView.context, MessagesActivity::class.java)
             //otherUserEmail = mainTitle.text.toString()
-            //itemView.context.startActivity(intent)
+            itemView.context.startActivity(intent)
         }
     }
 }
