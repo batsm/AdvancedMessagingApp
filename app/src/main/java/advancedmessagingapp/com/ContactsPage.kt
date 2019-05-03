@@ -10,10 +10,13 @@ import kotlinx.android.synthetic.main.activity_contacts_page.*
 //import android.R
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.ActionBar
+import kotlinx.android.synthetic.main.activity_account.*
+import kotlinx.android.synthetic.main.activity_contacts_page.navigationView
 
 
 class ContactsPage : FragmentActivity() {
 
+    private lateinit var bottomNavigationView: BottomNavigationView
     private var contacts = ArrayList<contactContainerData>()
     private val NavBarListener = BottomNavigationView.OnNavigationItemSelectedListener {item->
         when(item.itemId){
@@ -24,10 +27,13 @@ class ContactsPage : FragmentActivity() {
             R.id.action_addcontacts -> {
                 var intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.action_account -> {
-
+                var intent = Intent(this, AccountActivity::class.java)
+                startActivity(intent)
+                finish()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -37,9 +43,11 @@ class ContactsPage : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts_page)
+        overridePendingTransition(0, 0)
 
-        //toolbar = supportActionBar!!
-        //val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationBarBackground)
+        navigationView.setOnNavigationItemSelectedListener(NavBarListener)
+        navigationView.setOnNavigationItemSelectedListener(null)
+        navigationView.selectedItemId = R.id.action_contacts
         navigationView.setOnNavigationItemSelectedListener(NavBarListener)
 
         val adapter = contactsAdapter(contacts)
