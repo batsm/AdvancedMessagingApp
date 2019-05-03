@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_contacts_page.*
 
-class AccountActivity : AppCompatActivity() {
+class AddContacts : AppCompatActivity() {
 
     private val NavBarListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
         when(item.itemId){
@@ -17,13 +17,12 @@ class AccountActivity : AppCompatActivity() {
                 //return@OnNavigationItemSelectedListener true
             }
             R.id.action_addcontacts -> {
-                var intent = Intent(this, AddContacts::class.java)
-                startActivity(intent)
-                finish()
-                //return@OnNavigationItemSelectedListener true
+                return@OnNavigationItemSelectedListener true
             }
             R.id.action_account -> {
-
+                var intent = Intent(this, AccountActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
         false
@@ -31,12 +30,12 @@ class AccountActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_account)
+        setContentView(R.layout.activity_add_contacts)
         overridePendingTransition(0, 0)
 
         navigationView.setOnNavigationItemSelectedListener(NavBarListener)
         navigationView.setOnNavigationItemSelectedListener(null)
-        navigationView.selectedItemId = R.id.action_account
+        navigationView.selectedItemId = R.id.action_addcontacts
         navigationView.setOnNavigationItemSelectedListener(NavBarListener)
     }
 }

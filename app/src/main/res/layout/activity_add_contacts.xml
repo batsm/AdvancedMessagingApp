@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AccountActivity"
+        tools:context=".AddContacts"
         android:background="#1a191e">
 
     <android.support.design.widget.BottomNavigationView
@@ -21,13 +21,11 @@
     >
     </android.support.design.widget.BottomNavigationView>
     <TextView
-            android:text="Account"
+            android:text="Add Contacts"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView3"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             android:textSize="24sp" android:textColor="@color/colorLightText" android:layout_marginTop="8dp"/>
-
-</android.support.constraint.ConstraintLayout
-
->
+</android.support.constraint.ConstraintLayout>

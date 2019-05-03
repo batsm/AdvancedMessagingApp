@@ -25,7 +25,7 @@ class ContactsPage : FragmentActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.action_addcontacts -> {
-                var intent = Intent(this, MainActivity::class.java)
+                var intent = Intent(this, AddContacts::class.java)
                 startActivity(intent)
                 finish()
                 return@OnNavigationItemSelectedListener true
