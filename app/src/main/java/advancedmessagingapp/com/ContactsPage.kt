@@ -1,5 +1,6 @@
 package advancedmessagingapp.com
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
@@ -13,9 +14,25 @@ import android.support.v7.app.ActionBar
 
 class ContactsPage : FragmentActivity() {
 
-    //lateinit var toolbar: ActionBar
-
     private var contacts = ArrayList<contactContainerData>()
+    private val NavBarListener = BottomNavigationView.OnNavigationItemSelectedListener {item->
+        when(item.itemId){
+            R.id.action_contacts -> {
+
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.action_addcontacts -> {
+                var intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.action_account -> {
+
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +40,7 @@ class ContactsPage : FragmentActivity() {
 
         //toolbar = supportActionBar!!
         //val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationBarBackground)
+        navigationView.setOnNavigationItemSelectedListener(NavBarListener)
 
         val adapter = contactsAdapter(contacts)
 
