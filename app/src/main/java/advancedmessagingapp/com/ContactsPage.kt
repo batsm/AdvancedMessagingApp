@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_contacts_page.navigationView
 
 class ContactsPage : FragmentActivity() {
 
-    private lateinit var bottomNavigationView: BottomNavigationView
+    //private lateinit var bottomNavigationView: BottomNavigationView
     private var contacts = ArrayList<contactContainerData>()
     private val NavBarListener = BottomNavigationView.OnNavigationItemSelectedListener {item->
         when(item.itemId){

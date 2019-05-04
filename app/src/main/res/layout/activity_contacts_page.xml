@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/contactsRecyclerView"
             tools:listitem="@layout/contact_container" android:layout_marginTop="8dp" android:clipToPadding="false"
-            android:clipChildren="false" android:layout_marginBottom="8dp"
+            android:clipChildren="false"
             app:layout_constraintBottom_toTopOf="@+id/navigationView">
     </android.support.v7.widget.RecyclerView>
 </android.support.constraint.ConstraintLayout>
