@@ -27,7 +27,7 @@ class contactsAdapter (private val contactList: ArrayList<contactContainerData>)
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        val mainContactTitle = itemView.findViewById<TextView>(R.id.txtContactName)
+        val mainContactTitle = itemView.findViewById<TextView>(R.id.txtContactUsername)
         val mainContactMessage = itemView.findViewById<TextView>(R.id.txtContactLastMessage)
 
         init {
