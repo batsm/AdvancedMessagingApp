@@ -46,7 +46,7 @@ class AddContacts : AppCompatActivity() {
 
         for (i in 1..20)
         {
-            searchedContacts.add(searchedContactContainerData("Found user ${i.toString()}"))
+            searchedContacts.add(searchedContactContainerData("Found user $i"))
         }
 
         addContactsRecyclerView.layoutManager = LinearLayoutManager(this@AddContacts, LinearLayout.VERTICAL, false)
