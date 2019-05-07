@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "287946004098-q7e9ucnqrd5l89lmapranjahi5jnqmsp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "advancedmessagingapp.com",
+            "certificate_hash": "db240edfef6d34e07d33ce463b95ba87f4c05cde"
+          }
+        },
+        {
           "client_id": "287946004098-f5bj0688el46l3kdd0niv8ds67u57km4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

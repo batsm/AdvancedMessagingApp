@@ -9,6 +9,8 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_create_account.*
 
 
@@ -16,9 +18,13 @@ class LoginActivity : FragmentActivity() {
 
     var fbAuth = FirebaseAuth.getInstance()
 
+    private lateinit var database: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        database = FirebaseDatabase.getInstance().reference
 
         btnLogin.setOnClickListener { view ->
             signIn(view, txtLoginEmail.text.toString(), txtLoginPassword.text.toString())
@@ -35,6 +41,8 @@ class LoginActivity : FragmentActivity() {
         //
         //
         btnBypass.setOnClickListener {
+            //database.child("users").child("email2gmailcom").setValue("email2@gmail.com")
+
             var intent = Intent(this, ContactsPage::class.java)
             startActivity(intent)
         }
