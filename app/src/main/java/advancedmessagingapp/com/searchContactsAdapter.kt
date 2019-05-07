@@ -10,6 +10,11 @@ import org.w3c.dom.Text
 
 class searchContactsAdapter (private val searchedContactList: ArrayList<searchedContactContainerData>): RecyclerView.Adapter<searchContactsAdapter.ViewHolder>(){
 
+    fun clearSearchedContacts(){
+        searchedContactList.clear()
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         p0.mainTitleUsername.text = searchedContactList[p1].username
     }
