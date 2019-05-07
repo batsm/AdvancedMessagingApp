@@ -13,7 +13,7 @@ class MessagesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_messages)
 
-        for(i in 1..20){
+        for(i in 1..50){
             messages.add(messagesContainerData("Message $i", "a"))
         }
 

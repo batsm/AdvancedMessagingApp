@@ -1,10 +1,12 @@
 package advancedmessagingapp.com
 
 import android.support.v7.widget.RecyclerView
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_create_account.view.*
 
 class messagesAdapter (private val messagesList: ArrayList<messagesContainerData>): RecyclerView.Adapter<messagesAdapter.ViewHolder>(){
 
@@ -16,6 +18,9 @@ class messagesAdapter (private val messagesList: ArrayList<messagesContainerData
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         p0.mainMessageContent.text = messagesList[p1].messageContent
+        if (messagesList[p1].sender == "a"){
+            p0.mainMessageContent.gravity = Gravity.RIGHT
+        }
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
