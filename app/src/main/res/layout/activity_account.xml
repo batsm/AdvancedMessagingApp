@@ -41,7 +41,7 @@
             android:inputType="textPersonName"
             android:text="Name"
             android:ems="10"
-            android:id="@+id/editText" android:layout_marginTop="8dp"
+            android:id="@+id/txtAccountName" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView3" android:layout_marginStart="32dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent" android:textColor="@color/colorLightText"/>
@@ -50,19 +50,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView5" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/txtAccountName"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp" android:textSize="18sp"
             android:textColor="@color/colorLightText"/>
-    <EditText
+    <TextView
+            android:text="TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editText2" android:layout_marginTop="8dp"
+            android:id="@+id/txtAccountEmail" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView5" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="32dp" android:textColor="@color/colorLightText" android:editable="false"/>
+            android:layout_marginEnd="32dp" android:textSize="18sp" android:textColor="@color/colorDarkerText"/>
+    <Button
+            android:text="Update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAccountUpdate" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtAccountEmail" android:textSize="18sp"
+            android:layout_marginEnd="32dp" app:layout_constraintEnd_toEndOf="parent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
 </android.support.constraint.ConstraintLayout
 
