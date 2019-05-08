@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -22,6 +23,9 @@ class AddContacts : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private var combinedUsername = "null"
     var re = Regex("[^a-zA-Z0-9 -]")
+    var emailSearched = ""
+    var reEmailSearched = Regex(emailSearched)
+    var tempArray = ArrayList<searchedContactContainerData>()
 
     private var searchedContacts = ArrayList<searchedContactContainerData>()
     private val NavBarListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
@@ -70,8 +74,10 @@ class AddContacts : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 if(p0!!.exists()){
                     usersAdapter.clearSearchedContacts()
+                    addContactsRecyclerView.adapter = searchContactsAdapter(users)
                     for (i in p0.children){
-
+                        searchedContacts.add(searchedContactContainerData(i.child("email").value.toString(), i.child("name").value.toString()))
+                        usersAdapter.addUser(searchedContactContainerData(i.child("email").value.toString(), i.child("name").value.toString()))
                     }
                 }
             }
@@ -79,26 +85,25 @@ class AddContacts : AppCompatActivity() {
 
         txtSearchContacts.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
+                tempArray.clear()
+                for (i in 0 until searchedContacts.size){
+                    if (searchedContacts[i].email.toLowerCase().contains(txtSearchContacts.text.toString().toLowerCase())){
+                        tempArray.add(searchedContacts[i])
+                    }
+                }
+                addContactsRecyclerView.layoutManager = LinearLayoutManager(this@AddContacts, LinearLayout.VERTICAL, false)
+                addContactsRecyclerView.adapter = searchContactsAdapter(tempArray)
             }
 
         })
-        //for (i in 1..20)
-        //{
-        //  searchedContacts.add(searchedContactContainerData("Found user $i"))
-        //}
-
-        for(i in users){
-
-        }
         addContactsRecyclerView.layoutManager = LinearLayoutManager(this@AddContacts, LinearLayout.VERTICAL, false)
         addContactsRecyclerView.adapter = searchContactsAdapter(searchedContacts)
     }

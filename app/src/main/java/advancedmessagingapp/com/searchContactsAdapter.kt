@@ -1,12 +1,10 @@
 package advancedmessagingapp.com
 
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import org.w3c.dom.Text
 
 class searchContactsAdapter (private val searchedContactList: ArrayList<searchedContactContainerData>): RecyclerView.Adapter<searchContactsAdapter.ViewHolder>(){
 
@@ -15,8 +13,18 @@ class searchContactsAdapter (private val searchedContactList: ArrayList<searched
         notifyDataSetChanged()
     }
 
+    fun addUser(user: searchedContactContainerData){
+        searchedContactList.add(user)
+        notifyItemInserted(searchedContactList.size)
+    }
+
+    fun updateContacts(){
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0.mainTitleUsername.text = searchedContactList[p1].username
+        p0.mainTitleEmail.text = searchedContactList[p1].email
+        p0.secondTitleName.text = searchedContactList[p1].name
     }
 
     override fun getItemCount() = searchedContactList.size
@@ -26,7 +34,8 @@ class searchContactsAdapter (private val searchedContactList: ArrayList<searched
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        var mainTitleUsername = itemView.findViewById<TextView>(R.id.txtSearchedContactUsername)
+        var mainTitleEmail = itemView.findViewById<TextView>(R.id.txtSearchedContactEmail)
+        var secondTitleName = itemView.findViewById<TextView>(R.id.txtSearchedContactName)
 
         /*
         init {

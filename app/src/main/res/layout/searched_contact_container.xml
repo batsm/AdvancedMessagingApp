@@ -10,14 +10,14 @@
         <TextView
                 android:text="Username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/txtSearchedContactUsername"
+                android:layout_height="wrap_content" android:id="@+id/txtSearchedContactEmail"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="24sp" android:paddingLeft="16dp"/>
         <TextView
                 android:text="Email: test111@gmail.com"
                 android:layout_width="394dp"
-                android:layout_height="wrap_content" android:id="@+id/txtSearchedContactEmail"
+                android:layout_height="wrap_content" android:id="@+id/txtSearchedContactName"
                 android:layout_weight="1" android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="18sp" android:textColor="@color/colorDarkerText"
                 android:textAlignment="textStart" android:paddingLeft="32dp" android:paddingRight="32dp"/>
