@@ -26,24 +26,18 @@ class LoginActivity : FragmentActivity() {
 
         database = FirebaseDatabase.getInstance().reference
 
+        if (fbAuth.currentUser != null){
+            var intent = Intent(this, ContactsPage::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         btnLogin.setOnClickListener { view ->
             signIn(view, txtLoginEmail.text.toString(), txtLoginPassword.text.toString())
         }
 
         btnNewAccount.setOnClickListener {
             var intent = Intent(this, CreateAccount::class.java)
-            startActivity(intent)
-        }
-
-        //
-        //
-        // DELETE THIS BEFORE SUBMISSION
-        //
-        //
-        btnBypass.setOnClickListener {
-            //database.child("users").child("email2gmailcom").setValue("email2@gmail.com")
-
-            var intent = Intent(this, ContactsPage::class.java)
             startActivity(intent)
         }
     }
@@ -56,7 +50,7 @@ class LoginActivity : FragmentActivity() {
                 if (task.isSuccessful) {
                     showMessage(view, "Logged in!")
                     var intent = Intent(this, ContactsPage::class.java)
-                    intent.putExtra("id", fbAuth.currentUser?.email)
+                    //intent.putExtra("id", fbAuth.currentUser?.email)
                     startActivity(intent)
                     finish()
                 } else {

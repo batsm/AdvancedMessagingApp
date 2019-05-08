@@ -71,5 +71,12 @@ class AccountActivity : AppCompatActivity() {
             if (txtAccountName.text.length > 3 && txtAccountName.text.length < 15)
             database.child("users").child(username).child("name").setValue(txtAccountName.text.toString())
         }
+
+        btnSignOut.setOnClickListener { view ->
+            fbAuth.signOut()
+            var intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
