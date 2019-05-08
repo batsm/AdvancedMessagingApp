@@ -4,7 +4,9 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.Snackbar
 import android.util.Log
+import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_account.*
@@ -70,6 +72,7 @@ class AccountActivity : AppCompatActivity() {
         btnAccountUpdate.setOnClickListener { view ->
             if (txtAccountName.text.length > 3 && txtAccountName.text.length < 15)
             database.child("users").child(username).child("name").setValue(txtAccountName.text.toString())
+            showMessage(view, "Account updated!")
         }
 
         btnSignOut.setOnClickListener { view ->
@@ -78,5 +81,9 @@ class AccountActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    fun showMessage(view: View, message: String) {
+        Snackbar.make(view, message, Snackbar.LENGTH_SHORT).setAction("Action", null).show()
     }
 }

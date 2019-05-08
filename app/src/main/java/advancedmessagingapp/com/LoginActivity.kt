@@ -33,7 +33,10 @@ class LoginActivity : FragmentActivity() {
         }
 
         btnLogin.setOnClickListener { view ->
-            signIn(view, txtLoginEmail.text.toString(), txtLoginPassword.text.toString())
+            if (txtLoginEmail.length() > 0 && txtLoginPassword.length() > 0)
+                signIn(view, txtLoginEmail.text.toString(), txtLoginPassword.text.toString())
+            else
+                showMessage(view, "Please enter a username and password")
         }
 
         btnNewAccount.setOnClickListener {
