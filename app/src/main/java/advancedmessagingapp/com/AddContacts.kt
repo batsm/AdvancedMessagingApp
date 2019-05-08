@@ -25,7 +25,7 @@ class AddContacts : AppCompatActivity() {
     var re = Regex("[^a-zA-Z0-9 -]")
     var emailSearched = ""
     var reEmailSearched = Regex(emailSearched)
-    var tempArray = ArrayList<searchedContactContainerData>()
+    var SearchedContactsArray = ArrayList<searchedContactContainerData>()
 
     private var searchedContacts = ArrayList<searchedContactContainerData>()
     private val NavBarListener = BottomNavigationView.OnNavigationItemSelectedListener { item->
@@ -76,8 +76,21 @@ class AddContacts : AppCompatActivity() {
                     usersAdapter.clearSearchedContacts()
                     addContactsRecyclerView.adapter = searchContactsAdapter(users)
                     for (i in p0.children){
-                        searchedContacts.add(searchedContactContainerData(i.child("email").value.toString(), i.child("name").value.toString()))
-                        usersAdapter.addUser(searchedContactContainerData(i.child("email").value.toString(), i.child("name").value.toString()))
+                        if (i.child("email").value.toString().toLowerCase() != fbAuth.currentUser!!.email.toString().toLowerCase()) {
+                            //stops logged in user from showing up in list
+                            searchedContacts.add(
+                                searchedContactContainerData(
+                                    i.child("email").value.toString(),
+                                    i.child("name").value.toString()
+                                )
+                            )
+                            usersAdapter.addUser(
+                                searchedContactContainerData(
+                                    i.child("email").value.toString(),
+                                    i.child("name").value.toString()
+                                )
+                            )
+                        }
                     }
                 }
             }
@@ -93,14 +106,14 @@ class AddContacts : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                tempArray.clear()
+                SearchedContactsArray.clear()
                 for (i in 0 until searchedContacts.size){
                     if (searchedContacts[i].email.toLowerCase().contains(txtSearchContacts.text.toString().toLowerCase())){
-                        tempArray.add(searchedContacts[i])
+                        SearchedContactsArray.add(searchedContacts[i])
                     }
                 }
                 addContactsRecyclerView.layoutManager = LinearLayoutManager(this@AddContacts, LinearLayout.VERTICAL, false)
-                addContactsRecyclerView.adapter = searchContactsAdapter(tempArray)
+                addContactsRecyclerView.adapter = searchContactsAdapter(SearchedContactsArray)
             }
 
         })

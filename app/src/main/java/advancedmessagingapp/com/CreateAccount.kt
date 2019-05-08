@@ -44,7 +44,7 @@ class CreateAccount : FragmentActivity() {
         fbAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if(task.isSuccessful){
-                    var UsernameEmail = re.replace(email, "")
+                    var UsernameEmail = re.replace(email, "").toLowerCase()
                     val user = createUserData(email, txtCreateName.text.toString())
                     database.child("users").child(UsernameEmail).setValue(user)
                     showMessage(view, "Created account!")

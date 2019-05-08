@@ -9,14 +9,15 @@ import android.widget.TextView
 
 class contactsAdapter (private val contactList: ArrayList<contactContainerData>): RecyclerView.Adapter<contactsAdapter.ViewHolder>() {
 
+
     fun clearContacts() {
         contactList.clear()
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0.mainContactTitle.text = contactList[p1].username
-        p0.mainContactMessage.text = contactList[p1].lastmessage
+        p0.mainContactEmail.text = contactList[p1].email
+        p0.mainContactName.text = contactList[p1].name
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,16 +28,17 @@ class contactsAdapter (private val contactList: ArrayList<contactContainerData>)
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        val mainContactTitle = itemView.findViewById<TextView>(R.id.txtContactUsername)
-        val mainContactMessage = itemView.findViewById<TextView>(R.id.txtContactLastMessage)
+        val mainContactEmail = itemView.findViewById<TextView>(R.id.txtContactEmail)
+        val mainContactName = itemView.findViewById<TextView>(R.id.txtContactName)
 
         init {
             itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
+            otherUserEmail = mainContactEmail.text.toString()
+            otherUserName = mainContactName.text.toString()
             val intent = Intent(itemView.context, MessagesActivity::class.java)
-            //otherUserEmail = mainTitle.text.toString()
             itemView.context.startActivity(intent)
         }
     }

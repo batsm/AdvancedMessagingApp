@@ -10,6 +10,20 @@ import kotlinx.android.synthetic.main.activity_create_account.view.*
 
 class messagesAdapter (private val messagesList: ArrayList<messagesContainerData>): RecyclerView.Adapter<messagesAdapter.ViewHolder>(){
 
+    fun clearMessages(){
+        messagesList.clear()
+        notifyDataSetChanged()
+    }
+
+    fun addMessage(message: String, user: String){
+        messagesList.add(messagesContainerData(message, user))
+        notifyItemInserted(messagesList.size)
+    }
+
+    fun listSize(): Int{
+        return messagesList.size
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.message_container, parent, false))
     }
@@ -18,8 +32,10 @@ class messagesAdapter (private val messagesList: ArrayList<messagesContainerData
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         p0.mainMessageContent.text = messagesList[p1].messageContent
-        if (messagesList[p1].sender == "a"){
+        if (messagesList[p1].sender == currentUser){
             p0.mainMessageContent.gravity = Gravity.RIGHT
+        } else {
+            p0.mainMessageContent.gravity = Gravity.LEFT
         }
     }
 

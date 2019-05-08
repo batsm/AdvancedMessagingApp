@@ -14,13 +14,13 @@
         <TextView
                 android:text="Username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/txtContactUsername" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/txtContactEmail" android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="24sp" android:paddingLeft="16dp"/>
         <TextView
                 android:text="Hi! How are you!!"
                 android:layout_width="394dp"
-                android:layout_height="wrap_content" android:id="@+id/txtContactLastMessage"
+                android:layout_height="wrap_content" android:id="@+id/txtContactName"
                 android:layout_weight="1" android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="18sp" android:textColor="@color/colorDarkerText"
                 android:textAlignment="textStart" android:paddingLeft="32dp" android:paddingRight="32dp"/>

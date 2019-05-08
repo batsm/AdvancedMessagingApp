@@ -1,3 +1,3 @@
 package advancedmessagingapp.com
 
-data class contactContainerData(val username: String, val lastmessage: String)
+data class contactContainerData(val email: String, val name: String)
