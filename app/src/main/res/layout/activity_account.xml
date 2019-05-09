@@ -54,7 +54,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp" android:textSize="18sp"
             android:textColor="@color/colorLightText"/>
     <TextView
-            android:text="TextView"
+            android:text="Example123@email.com"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtAccountEmail" android:layout_marginTop="8dp"

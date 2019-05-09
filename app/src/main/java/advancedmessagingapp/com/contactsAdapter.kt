@@ -9,7 +9,6 @@ import android.widget.TextView
 
 class contactsAdapter (private val contactList: ArrayList<contactContainerData>): RecyclerView.Adapter<contactsAdapter.ViewHolder>() {
 
-
     fun clearContacts() {
         contactList.clear()
         notifyDataSetChanged()

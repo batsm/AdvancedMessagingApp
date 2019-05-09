@@ -20,7 +20,6 @@ class MessagesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_messages)
 
         database = FirebaseDatabase.getInstance().reference
-        var chatMessages: ArrayList<String>
         var re = Regex("[^a-zA-Z0-9 -]")
         var userMessageSignature = fbAuth?.currentUser!!.email.toString()
         var currentUser = re.replace(currentUser.toLowerCase(), "")

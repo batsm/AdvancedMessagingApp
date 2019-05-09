@@ -58,9 +58,6 @@ class searchContactsAdapter (private val searchedContactList: ArrayList<searched
             database.child("users").child(currentUser).child("conversations").child(chatName).setValue("Chat")
             database.child("users").child(targetUser).child("conversations").child(chatName).setValue("Chat")
             database.child("conversations").child(chatName).push().setValue("")
-            //val intent = Intent(itemView.context, MessagesActivity::class.java)
-            //otherUserEmail = mainTitle.text.toString()
-            //itemView.context.startActivity(intent)
         }
     }
 }

@@ -14,27 +14,28 @@ import kotlinx.android.synthetic.main.activity_create_account.*
 class CreateAccount : FragmentActivity() {
 
     var fbAuth = FirebaseAuth.getInstance()
-
     private lateinit var database: DatabaseReference
     var re = Regex("[^a-zA-Z0-9 -]")
 
-    //private var usernames = ArrayList[]
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
 
         database = FirebaseDatabase.getInstance().reference
 
-        btnCreateAccount.setOnClickListener {view ->
-            if (txtCreatePass1.text.toString() == txtCreatePass2.text.toString()) {
-                if (txtCreateName.text.toString() != "") {
-                    createAccount(view, txtCreateEmail.text.toString(), txtCreatePass1.text.toString())
+        btnCreateAccount.setOnClickListener { view ->
+            if (txtCreateEmail.text.toString() == "" || txtCreatePass1.text.toString() == ""){
+                    showMessage(view, "Please enter a username and password")
+                }else{
+                if (txtCreatePass1.text.toString() == txtCreatePass2.text.toString()) {
+                    if (txtCreateName.text.toString() != "") {
+                        createAccount(view, txtCreateEmail.text.toString(), txtCreatePass1.text.toString())
+                    } else {
+                        showMessage(view, "Error: Please enter a name")
+                    }
+                } else {
+                    showMessage(view, "Error: Passwords dont match")
                 }
-                else{
-                    showMessage(view, "Error: Please enter a name")
-                }
-            }else{
-                showMessage(view, "Error: Passwords dont match")
             }
         }
     }

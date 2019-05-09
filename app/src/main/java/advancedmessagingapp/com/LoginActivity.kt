@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_create_account.*
 class LoginActivity : FragmentActivity() {
 
     var fbAuth = FirebaseAuth.getInstance()
-
     private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +52,6 @@ class LoginActivity : FragmentActivity() {
                 if (task.isSuccessful) {
                     showMessage(view, "Logged in!")
                     var intent = Intent(this, ContactsPage::class.java)
-                    //intent.putExtra("id", fbAuth.currentUser?.email)
                     startActivity(intent)
                     finish()
                 } else {

@@ -43,9 +43,7 @@ class messagesAdapter (private val messagesList: ArrayList<messagesContainerData
         var mainMessageContent = itemView.findViewById<TextView>(R.id.txtMessageContent)
 
         override fun onClick(v: View?) {
-            // val intent = Intent(itemView.context, MessagesActivity::class.java)
-            //otherUserEmail = mainTitle.text.toString()
-            // itemView.context.startActivity(intent)
+
         }
     }
 }

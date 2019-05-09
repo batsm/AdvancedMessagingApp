@@ -70,9 +70,12 @@ class AccountActivity : AppCompatActivity() {
         })
 
         btnAccountUpdate.setOnClickListener { view ->
-            if (txtAccountName.text.length > 3 && txtAccountName.text.length < 15)
-            database.child("users").child(username).child("name").setValue(txtAccountName.text.toString())
-            showMessage(view, "Account updated!")
+            if (txtAccountName.text.length > 0 && txtAccountName.text.length < 15) {
+                database.child("users").child(username).child("name").setValue(txtAccountName.text.toString())
+                showMessage(view, "Account updated!")
+            } else {
+                showMessage(view, "Error updating account")
+            }
         }
 
         btnSignOut.setOnClickListener { view ->

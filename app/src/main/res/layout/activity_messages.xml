@@ -40,5 +40,5 @@
             app:layout_constraintTop_toBottomOf="@+id/txtTitleName"
             app:layout_constraintBottom_toTopOf="@+id/btnSendMessage" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:id="@+id/messagesRecyclerView"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp" tools:listitem="@layout/message_container"/>
 </android.support.constraint.ConstraintLayout>

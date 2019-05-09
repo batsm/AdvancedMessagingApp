@@ -69,7 +69,6 @@ class ContactsPage : FragmentActivity() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                //adapter.clearContacts()
                 for (i in p0.children){
                     chatsArray.add(reDash.replace(reUsername.replace(i.key.toString(), ""), ""))
                 }

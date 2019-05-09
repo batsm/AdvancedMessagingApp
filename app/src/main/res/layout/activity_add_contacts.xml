@@ -47,5 +47,5 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
             app:layout_constraintBottom_toTopOf="@+id/navigationView" android:id="@+id/addContactsRecyclerView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" tools:listitem="@layout/searched_contact_container"/>
 </android.support.constraint.ConstraintLayout>
